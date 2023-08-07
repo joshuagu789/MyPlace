@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <p>
+    <a href="{% url 'progress_log:index' %}" >Progress Log</a> -
+    <a href="{% url 'progress_log:topics' %}" >Topics</a>
+  </p>
+  {% block content %}{% endblock content %}
+</body>
+</html>
