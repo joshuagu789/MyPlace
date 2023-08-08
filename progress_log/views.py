@@ -16,7 +16,16 @@ def about_topic(request, topic_id):
     #about_topic = AboutTopic.objects.get(id=topic_id)
     about_topic = AboutTopic.objects.order_by('date_added')
     topic = Topic.objects.get(id=topic_id)
-    context = {'topic': topic, 'about_topic': about_topic}
+    #about_topic = AboutTopic.objects.get(topic == topic.text)
+
+    descriptions = []
+
+    for description in about_topic:
+        if str(description.topic) == topic.text:
+            descriptions.append(description)
+
+    #context = {'topic': topic, 'about_topic': about_topic}
+    context = {'topic': topic, 'about_topic': descriptions}
     return render(request, 'progress_log/about_topic.html', context)
 
 def topic(request, topic_id):

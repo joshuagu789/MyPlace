@@ -12,12 +12,11 @@
   <p>About {{topic.text}} :</p>
   <!--  <p>{{about_topic.text}}</p> -->
       {% for descriptions in about_topic %}
-      <li>
+
         <p>{{descriptions.text}}</p>
         <br>
-      </li>
       {% empty %}
-        <li>There are no descriptions for this about topic section</li>
+        <p>There are no descriptions for this about topic section</p>
     {% endfor %}
   <br>
   {% endblock content %}
