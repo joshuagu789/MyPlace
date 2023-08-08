@@ -12,7 +12,7 @@
     <p>Topics</p>
     <ul>
       {% for topic in topics %}
-        <li><a href="{% url 'progress_log:topic' topic.id %}">{{topic.text}}</a></li>
+        <li><a href="{% url 'progress_log:topic' topic.id %}about">{{topic.text}}</a></li>
         {% empty %}                                 <!-- Makes line below execute if no items in list -->
         <li>No topics have been added yet</li>
         {% endfor %}                                <!-- End of for loop -->

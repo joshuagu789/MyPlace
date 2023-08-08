@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Topic
+from .models import Topic, AboutTopic
 
 # Create your views here.
 def index(request):
@@ -12,8 +12,11 @@ def topics(request):
     context = {'topics': topics}
     return render(request, 'progress_log/topics.html', context)
 
-def about_topic(request):
-    context = {'': topic}
+def about_topic(request, topic_id):
+    #about_topic = AboutTopic.objects.get(id=topic_id)
+    about_topic = AboutTopic.objects.order_by('date_added')
+    topic = Topic.objects.get(id=topic_id)
+    context = {'topic': topic, 'about_topic': about_topic}
     return render(request, 'progress_log/about_topic.html', context)
 
 def topic(request, topic_id):

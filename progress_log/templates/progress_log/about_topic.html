@@ -7,6 +7,19 @@
     <title>Title</title>
 </head>
 <body>
-
+  {% block content %}
+  <a href="{% url 'progress_log:topic' topic.id %}" >Go to Entries</a>
+  <p>About {{topic.text}} :</p>
+  <!--  <p>{{about_topic.text}}</p> -->
+      {% for descriptions in about_topic %}
+      <li>
+        <p>{{descriptions.text}}</p>
+        <br>
+      </li>
+      {% empty %}
+        <li>There are no descriptions for this about topic section</li>
+    {% endfor %}
+  <br>
+  {% endblock content %}
 </body>
 </html>

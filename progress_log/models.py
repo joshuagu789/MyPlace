@@ -13,6 +13,7 @@ class Topic(models.Model):
 class AboutTopic(models.Model):
     # Home page for associated Topic
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    date_added = models.DateTimeField(auto_now_add=True)
     title = "About Topic"
     text = models.TextField()
     def __str__(self):
