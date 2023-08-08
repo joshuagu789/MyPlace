@@ -10,10 +10,19 @@ class Topic(models.Model):
         # Returns model as a string
         return self.text
 
+class AboutTopic(models.Model):
+    # Home page for associated Topic
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    title = "About Topic"
+    text = models.TextField()
+    def __str__(self):
+        # Returns as a string that's 50 characters max
+        return  f"{self.title[:50]}..."
+
 class Entry(models.Model):
     # Something specific learned/done about topic
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200, default=str(Topic))    # My own personal addition while doing python book's tutorial :)
+    title = models.CharField(max_length=200, default=Topic.__name__)    # My own personal addition while doing python book's tutorial :)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 

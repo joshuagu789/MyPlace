@@ -12,6 +12,10 @@ def topics(request):
     context = {'topics': topics}
     return render(request, 'progress_log/topics.html', context)
 
+def about_topic(request):
+    context = {'': topic}
+    return render(request, 'progress_log/about_topic.html', context)
+
 def topic(request, topic_id):
     # Shows specific topic and its entries based on its ID
     topic = Topic.objects.get(id=topic_id)
