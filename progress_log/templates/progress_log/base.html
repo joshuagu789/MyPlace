@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Parent Template -->
+
+<style>
+.page_title{
+  border: 2px solid black;
+  font-size:40px;
+  text-align:center;
+  margin-left:50px;
+  margin-right:50px;
+}
+.section_title{
+  border: 2px solid black;
+  font-size:30px;
+  text-align:center;
+  margin-left:350px;
+  margin-right:350px;
+}
+.body_text{
+  border: 2px solid black;
+  font-size:18px;
+  width:80%;
+  margin-left:10%;
+  margin-right:10%
+  overflow:visible;
+}
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body style="background-color:LightCyan;">
   <p>
     <a href="{% url 'progress_log:index' %}" >Progress Log</a> -
     <a href="{% url 'progress_log:topics' %}" >Topics</a>

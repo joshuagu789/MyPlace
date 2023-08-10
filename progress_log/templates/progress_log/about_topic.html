@@ -8,14 +8,14 @@
 </head>
 <body>
   {% block content %}
-  <a href="{% url 'progress_log:topic' topic.id %}" >Go to Entries</a>
-  <p>About {{topic.text}} :</p>
-  <!--  <p>{{about_topic.text}}</p> -->
+  <p class="page_title">About {{topic.text}} :</p >
+  <p style="text-align:center"><a href="{% url 'progress_log:topic' topic.id %}" >Go to Entries</a></p>
       {% for description in about_topic %}
+        <p class="section_title"> {{description.title}} </p>
         {% if description.image.url is not null %}
-          <img src="{{description.image.url}}">
+          <p style="text-align:center;"><img src="{{description.image.url}}"></p>
         {% endif %}
-        <p>{{description.text}}</p>
+        <p class="body_text">{{description.text}}</p>
         <br>
       {% empty %}
         <p>There are no descriptions for this about topic section</p>

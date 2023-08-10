@@ -14,7 +14,7 @@ class AboutTopic(models.Model):
     # Home page for associated Topic
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     date_added = models.DateTimeField(auto_now_add=True)
-    title = "About Topic"
+    title = models.CharField(max_length=200, default=Topic.__name__)    # Section title for each block created for AboutTopic
     image = models.ImageField(null=True, blank=True, upload_to='images/')
     text = models.TextField()
     def __str__(self):
@@ -25,6 +25,7 @@ class Entry(models.Model):
     # Something specific learned/done about topic
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, default=Topic.__name__)    # My own personal addition while doing python book's tutorial :)
+    image = models.ImageField(null=True, blank=True, upload_to='images/')
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 

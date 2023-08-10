@@ -9,13 +9,13 @@
 </head>
 <body>
   {% block content %}
-    <p>Topics</p>
+    <p class="page_title">Topics</p>
     <ul>
       {% for topic in topics %}
         <li><a href="{% url 'progress_log:topic' topic.id %}about">{{topic.text}}</a></li>
-        {% empty %}                                 <!-- Makes line below execute if no items in list -->
+        {% empty %}
         <li>No topics have been added yet</li>
-        {% endfor %}                                <!-- End of for loop -->
+        {% endfor %}
     </ul>
   {% endblock content %}
 </body>

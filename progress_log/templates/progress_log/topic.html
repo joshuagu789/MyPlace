@@ -8,13 +8,15 @@
 </head>
 <body>
   {% block content %}
-  <p>Topic: {{topic.text}}</p>
-  <p>Entries: </p>
+  <p class="page_title">Entries for {{topic.text}}:</p>
   <ul>
     {% for entry in entries %}
-      <li>
-        <p>{{entry.title}}</p>
-        <p>{{entry.date_added|date:'M d, Y H:i'}}</p>
+      <li class="body_text">
+        <p class="section_title">{{entry.title}}</p>
+        <p style="text-align:center">{{entry.date_added|date:'M d, Y H:i'}}</p>
+        {% if entry.image.url is not null %}
+          <p style="text-align:center;"><img src="{{entry.image.url}}"></p>
+        {% endif %}
         <p>{{entry.text|linebreaks}}</p>
         <br>
       </li>
