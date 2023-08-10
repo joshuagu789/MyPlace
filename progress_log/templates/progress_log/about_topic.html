@@ -11,9 +11,9 @@
   <a href="{% url 'progress_log:topic' topic.id %}" >Go to Entries</a>
   <p>About {{topic.text}} :</p>
   <!--  <p>{{about_topic.text}}</p> -->
-      {% for descriptions in about_topic %}
-
-        <p>{{descriptions.text}}</p>
+      {% for description in about_topic %}
+        <img src="{{description.image.url}}">
+        <p>{{description.text}}</p>
         <br>
       {% empty %}
         <p>There are no descriptions for this about topic section</p>
