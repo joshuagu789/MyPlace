@@ -12,12 +12,14 @@
   <p>About {{topic.text}} :</p>
   <!--  <p>{{about_topic.text}}</p> -->
       {% for description in about_topic %}
-        <img src="{{description.image.url}}">
+        {% if description.image.url is not null %}
+          <img src="{{description.image.url}}">
+        {% endif %}
         <p>{{description.text}}</p>
         <br>
       {% empty %}
         <p>There are no descriptions for this about topic section</p>
-    {% endfor %}
+      {% endfor %}
   <br>
   {% endblock content %}
 </body>

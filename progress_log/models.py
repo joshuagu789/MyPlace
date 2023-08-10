@@ -15,7 +15,7 @@ class AboutTopic(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     date_added = models.DateTimeField(auto_now_add=True)
     title = "About Topic"
-    image = models.ImageField(upload_to='uploads', blank=True)
+    image = models.ImageField(null=True, blank=True, upload_to='images/')
     text = models.TextField()
     def __str__(self):
         # Returns as a string that's 50 characters max
