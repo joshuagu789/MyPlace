@@ -9,9 +9,10 @@
 <body>
   {% block content %}
   <p class="page_title">Entries for {{topic.text}}:</p>
+  <p style="text-align:center"><a href="{% url 'progress_log:topic' topic.id %}about" >Return to About Page</a></p>
   <ul>
     {% for entry in entries %}
-      <li class="body_text">
+      <div class="body_text">
         <p class="section_title">{{entry.title}}</p>
         <p style="text-align:center">{{entry.date_added|date:'M d, Y H:i'}}</p>
         {% if entry.image.url is not null %}
@@ -19,7 +20,7 @@
         {% endif %}
         <p>{{entry.text|linebreaks}}</p>
         <br>
-      </li>
+      </div>
       {% empty %}
         <li>There are no entries for this topic yet</li>
     {% endfor %}

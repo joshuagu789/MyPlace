@@ -13,11 +13,8 @@ def topics(request):
     return render(request, 'progress_log/topics.html', context)
 
 def about_topic(request, topic_id):
-    #about_topic = AboutTopic.objects.get(id=topic_id)
     about_topic = AboutTopic.objects.order_by('date_added')
     topic = Topic.objects.get(id=topic_id)
-    #about_topic = AboutTopic.objects.get(topic == topic.text)
-
     descriptions = []
 
     for description in about_topic:
