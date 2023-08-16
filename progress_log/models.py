@@ -17,6 +17,10 @@ class AboutTopic(models.Model):
     title = models.CharField(max_length=200, default=Topic.__name__)    # Section title for each block created for AboutTopic
     image = models.ImageField(null=True, blank=True, upload_to='images/')
     text = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'about_topics'
+
     def __str__(self):
         # Returns as a string that's 50 characters max
         return  f"{self.title[:50]}..."
