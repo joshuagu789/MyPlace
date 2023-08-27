@@ -25,6 +25,9 @@
         <li>There are no entries for this topic yet</li>
     {% endfor %}
   </ul>
+  <p>
+    <a href="{% url 'progress_log:new_entry' topic.id %}">Add new entry</a>
+  </p>
   {% endblock content %}
 </body>
 </html>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Topic, AboutTopic
-from .forms import TopicForm, AboutTopicForm
+from .forms import TopicForm, AboutTopicForm, EntryForm
 
 # Create your views here.
 def index(request):
@@ -61,7 +61,24 @@ def new_about_topic(request, topic_id):
             new_about_topic.save()
             return redirect('progress_log:about_topic',topic_id=topic_id)
     # Displays a blank/invalid form
-    context = {'form': form}
-    return render(request,'progress_log/new_about_topic.html', topic_id=topic_id)
+    context = {'form': form,'topic': topic}
+    return render(request,'progress_log/new_about_topic.html', context)
+
+def new_entry(request, topic_id):
+    # Adding new entry for topic
+    topic = Topic.objects.get(id=topic_id)
+
+    if request.method != "POST":
+        form = EntryForm()
+    else:
+        form = EntryForm(data=request.POST)
+        if form.is_valid():
+            new_entry = form.save(commit=False)
+            new_entry.topic = topic
+            new_entry.save()
+            return redirect('progress_log:topic',topic_id=topic_id)
+    # Displays a blank/invalid form
+    context = {'form': form,'topic':topic}
+    return render(request,'progress_log/new_entry.html', context)
 
 

@@ -14,5 +14,7 @@ urlpatterns = [
     # Page to create new topics
     path('new_topic/', views.new_topic, name='new_topic'),
     # Page to add new about topic sections
-    path('new_about_topic/<int:topic_id>/', views.about_topic, name='new_about_topic')
+    path('new_about_topic/<int:topic_id>/', views.new_about_topic, name='new_about_topic'),
+    # Page to add new entries
+    path('new_entry/<int:topic_id>/', views.new_entry, name='new_entry'),
 ]

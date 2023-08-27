@@ -4,13 +4,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>New About Topic Description</title>
+    <title>New Entry</title>
 </head>
 <body>
   {% block content %}
-  <p class="page_title">Add a new about-topic section for {{topic.text}}:</p>
+  <p class="page_title">Add a new entry for {{topic.text}}:</p>
   <div class="body_text">
-  <form action="{% url 'progress_log:new_about_topic' topic.id %}" method='post'>
+  <form action="{% url 'progress_log:new_entry' topic.id %}" method='post'>
     {% csrf_token %}  <!-- cross-site request forgery for preventing attackers -->
     {{form.as_div}}
     <button name='submit'>Submit</button>

@@ -21,6 +21,9 @@
         <p>There are no descriptions for this about topic section</p>
       {% endfor %}
   <br>
+  <p>
+    <a href="{% url 'progress_log:new_about_topic' topic.id %}">Add new about-topic section</a>
+  </p>
   {% endblock content %}
 </body>
 </html>
