@@ -54,7 +54,7 @@ def new_about_topic(request, topic_id):
     if request.method != "POST":
         form = AboutTopicForm()
     else:
-        form = AboutTopicForm(data=request.POST)
+        form = AboutTopicForm(request.POST, request.FILES)
         if form.is_valid():
             new_about_topic = form.save(commit=False)
             new_about_topic.topic = topic
@@ -71,7 +71,7 @@ def new_entry(request, topic_id):
     if request.method != "POST":
         form = EntryForm()
     else:
-        form = EntryForm(data=request.POST)
+        form = EntryForm(request.POST, request.FILES)
         if form.is_valid():
             new_entry = form.save(commit=False)
             new_entry.topic = topic

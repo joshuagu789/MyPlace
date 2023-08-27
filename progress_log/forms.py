@@ -1,4 +1,4 @@
-from django import  forms
+from django import forms
 from .models import Topic, AboutTopic, Entry
 
 class TopicForm(forms.ModelForm):

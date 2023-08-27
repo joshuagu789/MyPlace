@@ -10,7 +10,7 @@
   {% block content %}
   <p class="page_title">Add a new about-topic section for {{topic.text}}:</p>
   <div class="body_text">
-  <form action="{% url 'progress_log:new_about_topic' topic.id %}" method='post'>
+  <form action="{% url 'progress_log:new_about_topic' topic.id %}" method='post' enctype="multipart/form-data">
     {% csrf_token %}  <!-- cross-site request forgery for preventing attackers -->
     {{form.as_div}}
     <button name='submit'>Submit</button>
